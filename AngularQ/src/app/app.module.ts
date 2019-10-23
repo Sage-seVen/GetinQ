@@ -8,13 +8,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { BankingComponent } from './banking/banking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserhomeComponent,
-    SignupComponent
+    SignupComponent,
+    AdminhomeComponent,
+    AdminloginComponent,
+    BankingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,47 @@
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
+      <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+        <form class="login100-form validate-form flex-sb flex-w">
+          <span class="login100-form-title p-b-53">
+            Request Token
+          </span>
+          
+          <div class="p-t-31 p-b-9">
+            <span class="txt1">
+              Select Date
+            </span>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Date is required">
+            <input class="input100" type="date" name="date" >
+            <span class="focus-input100"></span>
+          </div>
+          
+          <div class="p-t-31 p-b-9">
+            <span class="txt1">
+              Type of request
+            </span>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Username is required">
+            <select class="input100" name="typeofrequest">
+              <option value="loan">Loan</option>
+              <option value="deposit">Deposit</option>
+            </select>
+  
+            <span class="focus-input100"></span>
+          </div>
+  
+          <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn" routerLink="/userhome" (click)="pop()" >
+              Create Token
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div id="dropDownSelect1"></div>
+  
+  <router-outlet></router-outlet>
+  
