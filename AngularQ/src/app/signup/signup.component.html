@@ -12,7 +12,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" >
+          <input class="input100" type="text" name="username" [(ngModel)]="user.userName">
           <span class="focus-input100"></span>
         </div>
         
@@ -22,7 +22,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" >
+          <input class="input100" type="text" name="username" [(ngModel)]="user.userEmail" >
           <span class="focus-input100"></span>
         </div>
 
@@ -32,7 +32,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" >
+          <input class="input100" type="text" name="username" [(ngModel)]="user.userNumber">
           <span class="focus-input100"></span>
         </div>
 
@@ -42,11 +42,11 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-          <input class="input100" type="password" name="pass"  >
+          <input class="input100" type="password" name="pass" [(ngModel)]="user.password" >
           <span class="focus-input100"></span>
         </div>
 
-        <div class="p-t-13 p-b-9">
+        <!-- <div class="p-t-13 p-b-9">
           <span class="txt1">
             Confirm Password
           </span>
@@ -54,10 +54,10 @@
         <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
           <input class="input100" type="password" name="pass"  >
           <span class="focus-input100"></span>
-        </div>
+        </div> -->
 
         <div class="container-login100-form-btn m-t-17">
-          <button class="login100-form-btn" routerLink="/login" (click)="pop()" >
+          <button class="login100-form-btn" routerLink="/login" (click)="saveUser()" >
             Create Account
           </button>
         </div>

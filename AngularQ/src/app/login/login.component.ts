@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 import { User } from '../user.model';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,21 +13,41 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  email;
-  password;
-
+  constructor(private userservice:UserserviceService, private routy:Router){}
   pop(){
     alert("Login Successfull !");
   }
-  check()
-  {
-    //if(this.Email=="admin"&&this.password=="admin")
+
+  number;
+  password;
+  user: User={"userNumber":0,"userName":"","userEmail":"","password":""};
+  
+  dbuser:User;//experimenting
+
+  validate(){
+    if(this.user.userNumber==this.number && this.user.password==this.password )
+      console.log("login success");
+    else
+      console.log("invalid credentials");
   }
 
-  constructor(private userservice:UserserviceService){}
-  user:User={"userNumber":1234567890,"userName":"Dwarka",userEmail:"string",password:"string"};
-  
-  saveUser(){
-    this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
+
+  getuser()
+  {
+    this.userservice.getUser(this.number,this.password).subscribe(
+      data=> this.user=data,
+      error=>console.log(error)
+    );
+
+    if(this.user.userNumber==this.number && this.user.password==this.password )
+      {
+      console.log("login success");
+      this.userservice.setid(this.number);
+      this.routy.navigateByUrl("/userhome");
+      }
+    else
+      console.log("invalid credentials");
+
+   console.log(this.user.userName);
   }
 }

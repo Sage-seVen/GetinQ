@@ -26,10 +26,13 @@ public class UserDao {
 			return mongoTemplate.findAll(User.class);
 		}
 
-		public User getUserById(String userNumber) {
+		public User getUserById(long userNumber, String password) {
 			Query query = new Query();
 			query.addCriteria(Criteria.where("userNumber").is(userNumber));
-			return mongoTemplate.findOne(query, User.class);
+			query.addCriteria(Criteria.where("password").is(password));
+			User user= mongoTemplate.findOne(query, User.class);
+			
+			return user;
 		}
 
 //		public Object getAllUserItems(String resturantId) {

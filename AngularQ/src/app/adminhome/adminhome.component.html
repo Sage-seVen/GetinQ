@@ -1,3 +1,11 @@
-<p>
-  adminhome works!
-</p>
+<input type="submit" value="Get Bank Data" (click)="getall()">
+
+<table border="2" *ngIf=(vision)>
+  <th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th>
+  <tr *ngFor="let user of bankers">
+      <td>{{user.userNumber}}</td>
+      <td>{{user.date}}</td>
+      <td>{{user.requestType}}</td>
+      <td>{{user.status}}</td>
+  </tr>
+</table>

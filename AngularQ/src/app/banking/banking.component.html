@@ -2,6 +2,7 @@
     <div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
       <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
         <form class="login100-form validate-form flex-sb flex-w">
+          {{num}}
           <span class="login100-form-title p-b-53">
             Request Token
           </span>
@@ -12,7 +13,7 @@
             </span>
           </div>
           <div class="wrap-input100 validate-input" data-validate = "Date is required">
-            <input class="input100" type="date" name="date" >
+            <input class="input100" type="date" name="date" [(ngModel)]="ldate">
             <span class="focus-input100"></span>
           </div>
           
@@ -22,7 +23,7 @@
             </span>
           </div>
           <div class="wrap-input100 validate-input" data-validate = "Username is required">
-            <select class="input100" name="typeofrequest">
+            <select class="input100" name="typeofrequest" [(ngModel)]="lrequestType">
               <option value="loan">Loan</option>
               <option value="deposit">Deposit</option>
             </select>
@@ -31,7 +32,7 @@
           </div>
   
           <div class="container-login100-form-btn m-t-17">
-            <button class="login100-form-btn" routerLink="/userhome" (click)="pop()" >
+            <button class="login100-form-btn" routerLink="/userhome" (click)="savebdata()" >
               Create Token
             </button>
           </div>

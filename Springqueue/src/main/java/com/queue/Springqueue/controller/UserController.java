@@ -34,10 +34,10 @@ public class UserController {
 		
 	}
 	
-	@GetMapping(value="user/{userNumber}")
-	public Object getRest(@PathVariable String userNumber )
+	@GetMapping(value="user/{userNumber}/{password}")
+	public Object getRest(@PathVariable long userNumber, @PathVariable String password )
 	{
-		return userService.getUserById(userNumber); 
+		return userService.getUserById(userNumber, password); 
 		
 	}
 	

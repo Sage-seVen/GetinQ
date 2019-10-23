@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user.model';
+import { UserserviceService } from '../userservice.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userservice:UserserviceService) { }
 
   ngOnInit() {
   }
-
-  pop(){
-    alert("Account Creation Successfull");
+  
+  user:User={"userNumber":0,"userName":"","userEmail":"","password":""};
+  
+  saveUser(){
+    this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
   }
+
 }
