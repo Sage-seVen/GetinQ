@@ -24,12 +24,7 @@ export class LoginComponent implements OnInit {
   
   dbuser:User;//experimenting
 
-  validate(){
-    if(this.user.userNumber==this.number && this.user.password==this.password )
-      console.log("login success");
-    else
-      console.log("invalid credentials");
-  }
+
 
 
   getuser()

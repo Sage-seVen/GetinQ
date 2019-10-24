@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { BankingComponent } from './banking/banking.component';
+import { HospitalComponent } from './hospital/hospital.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BankingComponent } from './banking/banking.component';
     SignupComponent,
     AdminhomeComponent,
     AdminloginComponent,
-    BankingComponent
+    BankingComponent,
+    HospitalComponent
   ],
   imports: [
     BrowserModule,

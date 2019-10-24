@@ -16,6 +16,15 @@ export class AdminhomeComponent implements OnInit {
 
   vision:boolean=false;
   bankers:Banking[]=[];
+
+
+  parseDate(getdate:number)
+  {
+    
+   return new Date(getdate).toDateString();
+
+  }
+
   getall()
   {
       this.vision=true;
@@ -26,7 +35,7 @@ export class AdminhomeComponent implements OnInit {
 
     for(let rest of this.bankers)
     {
-      console.log(rest.status);
+      console.log(rest);
     }
   }
 }

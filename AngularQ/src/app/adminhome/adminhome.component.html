@@ -4,8 +4,10 @@
   <th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th>
   <tr *ngFor="let user of bankers">
       <td>{{user.userNumber}}</td>
-      <td>{{user.date}}</td>
+      <td>{{parseDate(user.date)}}</td>
       <td>{{user.requestType}}</td>
       <td>{{user.status}}</td>
   </tr>
 </table>
+
+<a routerLink=".."> Back </a>

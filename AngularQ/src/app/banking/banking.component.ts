@@ -19,15 +19,14 @@ export class BankingComponent implements OnInit {
   }
 
   //userNumber getting from userservice
-  ldate:Date;
-  lrequestType:String;
+  // ldate:Date;
+  // lrequestType:String;
   lstatus:string="Requested";
 
-  banking:Banking={userNumber:0, date:this.ldate, requestType:this.lrequestType,status:this.lstatus};
+  banking:Banking={userNumber:0, date:null, requestType:"",status:this.lstatus};
   
   savebdata(){
     this.banking.userNumber=this.num;
-    
     this.bankingservice.saveToken(this.banking).subscribe( data=> console.log(data), error=>console.log(error) );
   }
 
