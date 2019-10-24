@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
       {
       console.log("login success");
       this.userservice.setid(this.number);
+      this.userservice.setname(this.user.userName);
+      this.userservice.setemail(this.user.userEmail);
+      this.userservice.setpass(this.user.password);
       this.routy.navigateByUrl("/userhome");
       }
     else

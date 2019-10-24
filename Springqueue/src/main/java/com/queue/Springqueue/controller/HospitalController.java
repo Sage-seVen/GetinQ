@@ -11,44 +11,48 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.queue.Springqueue.dao.BankingDao;
-import com.queue.Springqueue.model.Banking;
-import com.queue.Springqueue.model.User;
+import com.queue.Springqueue.dao.HospitalDao;
+import com.queue.Springqueue.model.Hospital;
+
+
 
 @CrossOrigin
 @RestController
-public class Bankingcontroller {
+public class HospitalController {
 
 	
 	  
 	 
 	@Autowired
-	BankingDao bankingdao;
-	  @PostMapping(value="banking") 
-	  public Banking create(@RequestBody Banking banking) {
-	  
-	  return bankingdao.saveToken(banking); 
+	HospitalDao hospitaldao;
+	  @PostMapping(value="hospital") 
+	  public Hospital create(@RequestBody Hospital hospital) {
+	  return hospitaldao.saveAppointment(hospital); 
 	  }
 	  
-	  @GetMapping(value="banking")
-		public List<Banking> getAllBankers()
+	  @GetMapping(value="hospital")
+		public List<Hospital> getAllBankers()
 		{
-			return bankingdao.getAllBankers(); 
+			return hospitaldao.getAllPatients();
 		}
 	  
-	  //normal update method have to write
+	  @PutMapping(value="hospital")
+		public String updateRest(@RequestBody Hospital hospital )
+		{
+			//return hospitaldao.updateResturant(hospital);
+		  return "mastu";
+		}
 	  
-
-	  @PutMapping(value="banking/{userNumber}")
+	  @PutMapping(value="hospital/{userNumber}")
 		public String validatereq(@PathVariable long userNumber )
 		{
-			return bankingdao.validatereq(userNumber); 
+			return hospitaldao.validatereq(userNumber); 
 
 		}
-	  @PutMapping(value="banking1/{userNumber}")
+	  @PutMapping(value="hospital1/{userNumber}")
 		public String rejectreq(@PathVariable long userNumber )
 		{
-			return bankingdao.rejectreq(userNumber); 
+			return hospitaldao.rejectreq(userNumber); 
 
 		}
 	

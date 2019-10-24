@@ -11,15 +11,45 @@ export class UserserviceService {
   constructor(private http:HttpClient) { }
 
   globalnum:number;
+  globalname:string;
+  globalemail:string;
+  globalpass:string;
 
   setid(num:number)
   {
     this.globalnum=num;
   }
 
+  setname(name:string)
+  {
+    this.globalname=name;
+  }
+  setemail(email:string)
+  {
+    this.globalemail=email;
+  }
+
+  setpass(pass:string)
+  {
+    this.globalpass=pass;
+  }
+
   getid()
   {
     return this.globalnum;
+  }
+
+  getname()
+  {
+    return this.globalname;
+  }
+  getemail()
+  {
+    return this.globalemail;
+  }
+  getpass()
+  {
+    return this.globalpass;
   }
   
   saveUser(user:User){
@@ -37,5 +67,9 @@ export class UserserviceService {
     return this.http.get<User>(`http://localhost:8080/user/${userNumber}/${password}`);
   }
 
+  getUserbyid(userNumber:number)
+  {
+    return this.http.get<User>(`http://localhost:8080/user/${userNumber}`);
+  }
 
 }

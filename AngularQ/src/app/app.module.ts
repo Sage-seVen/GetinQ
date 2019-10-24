@@ -12,6 +12,9 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { BankingComponent } from './banking/banking.component';
 import { HospitalComponent } from './hospital/hospital.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { UserstatusComponent } from './userstatus/userstatus.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HospitalComponent } from './hospital/hospital.component';
     AdminhomeComponent,
     AdminloginComponent,
     BankingComponent,
-    HospitalComponent
+    HospitalComponent,
+    ProfileComponent,
+    UpdateprofileComponent,
+    UserstatusComponent
   ],
   imports: [
     BrowserModule,

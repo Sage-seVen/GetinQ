@@ -6,6 +6,8 @@ import { SignupComponent } from './signup/signup.component';
 import { BankingComponent } from './banking/banking.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HospitalComponent } from './hospital/hospital.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path:'userhome',component:UserhomeComponent},
   {path:'banking',component:BankingComponent},
   {path:'adminlogin',component:AdminloginComponent},
-  {path:'adminhome',component:AdminhomeComponent}
+  {path:'adminhome',component:AdminhomeComponent},
+  {path:'profile', component:ProfileComponent},
+  {path:'hospital',component:HospitalComponent}
   
   
   // {

@@ -37,7 +37,14 @@ public class UserController {
 	@GetMapping(value="user/{userNumber}/{password}")
 	public Object getRest(@PathVariable long userNumber, @PathVariable String password )
 	{
-		return userService.getUserById(userNumber, password); 
+		return userService.getUserByIdpass(userNumber, password); 
+		
+	}
+	
+	@GetMapping(value="user/{userNumber}")
+	public Object getRest(@PathVariable long userNumber)
+	{
+		return userService.getUserById(userNumber); 
 		
 	}
 	

@@ -26,12 +26,19 @@ public class UserDao {
 			return mongoTemplate.findAll(User.class);
 		}
 
-		public User getUserById(long userNumber, String password) {
+		public User getUserByIdpass(long userNumber, String password) {
 			Query query = new Query();
 			query.addCriteria(Criteria.where("userNumber").is(userNumber));
 			query.addCriteria(Criteria.where("password").is(password));
 			User user= mongoTemplate.findOne(query, User.class);
 			
+			return user;
+		}
+		
+		public User getUserById(long userNumber) {
+			Query query = new Query();
+			query.addCriteria(Criteria.where("userNumber").is(userNumber));
+			User user= mongoTemplate.findOne(query, User.class);
 			return user;
 		}
 

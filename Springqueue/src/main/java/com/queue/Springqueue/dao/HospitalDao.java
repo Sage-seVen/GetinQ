@@ -7,29 +7,36 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-
-import com.queue.Springqueue.model.Banking;
+import com.queue.Springqueue.model.Hospital;
 
 @Component
-public class BankingDao {
+public class HospitalDao {
 
 			@Autowired
 			private MongoTemplate mongoTemplate;
 
 
-			public Banking saveToken(Banking banking) {
-				mongoTemplate.save(banking);
-				return banking;
+			public Hospital saveAppointment(Hospital hospital) {
+				hospital.setStatus("Requested");
+				mongoTemplate.save(hospital);
+				return hospital;
 			}
 			
-			public List<Banking> getAllBankers() {
-				return mongoTemplate.findAll(Banking.class);
+			public List<Hospital> getAllPatients() {
+				return mongoTemplate.findAll(Hospital.class);
 			}
+			
+//			public Resturant getResturantById(String resturantId) {
+//				Query query = new Query();
+//				query.addCriteria(Criteria.where("resturantId").is(resturantId));
+//				return mongoTemplate.findOne(query, Resturant.class);
+//			}
+			
 			
 			public String validatereq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
-				Banking hosp=mongoTemplate.findOne(query, Banking.class);
+				Hospital hosp=mongoTemplate.findOne(query, Hospital.class);
 				hosp.setStatus("Approved");
 				mongoTemplate.save(hosp);
 				return "Status Approved";
@@ -38,7 +45,7 @@ public class BankingDao {
 			public String rejectreq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
-				Banking hosp=mongoTemplate.findOne(query, Banking.class);
+				Hospital hosp=mongoTemplate.findOne(query, Hospital.class);
 				hosp.setStatus("Rejected");
 				mongoTemplate.save(hosp);
 				return "Status Rejected";

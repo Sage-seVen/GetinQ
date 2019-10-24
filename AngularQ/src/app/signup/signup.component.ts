@@ -18,6 +18,11 @@ export class SignupComponent implements OnInit {
   
   saveUser(){
     this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
+    this.userservice.setid(this.user.userNumber);
+    this.userservice.setname(this.user.userName);
+    this.userservice.setemail(this.user.userEmail);
+    this.userservice.setpass(this.user.password);
+
   }
 
 }
