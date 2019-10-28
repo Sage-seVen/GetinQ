@@ -9,43 +9,47 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
+  
   ngOnInit() {
+    let key = localStorage.getItem('sessionState');
+    let userName = localStorage.getItem('id');
+    if(key=="LoggedIn") this.routy.navigateByUrl('/userhome');
   }
 
   constructor(private userservice:UserserviceService, private routy:Router){}
-  pop(){
-    alert("Login Successfull !");
-  }
 
-  number;
-  password;
-  user: User={"userNumber":0,"userName":"","userEmail":"","password":""};
-  
-  dbuser:User;//experimenting
+  number:number;
+  password:any;
 
-
-
-
+  user: User={"userNumber":null,"userName":"","userEmail":"","password":""};
   getuser()
   {
     this.userservice.getUser(this.number,this.password).subscribe(
-      data=> this.user=data,
+    data=>  { this.user=data;
+              if(this.user!=null)
+              //if(this.user.userNumber==this.number && this.user.password==this.password ) as single user is getting from db
+              {
+              console.log("Login success");
+              localStorage.setItem('id', this.user.userNumber+"");
+              localStorage.setItem('userName', this.user.userName);
+              localStorage.setItem('userEmail',this.user.userEmail);
+              localStorage.setItem('pass',this.user.password);
+              localStorage.setItem('sessionState', "LoggedIn");
+              // this.userservice.setid(this.number);
+              // this.userservice.setname(this.user.userName);
+              // this.userservice.setemail(this.user.userEmail);
+              // this.userservice.setpass(this.user.password);
+              this.routy.navigateByUrl("/userhome");
+              }
+              else
+                alert("Invalid Credentials");
+            },
       error=>console.log(error)
     );
 
-    if(this.user.userNumber==this.number && this.user.password==this.password )
-      {
-      console.log("login success");
-      this.userservice.setid(this.number);
-      this.userservice.setname(this.user.userName);
-      this.userservice.setemail(this.user.userEmail);
-      this.userservice.setpass(this.user.password);
-      this.routy.navigateByUrl("/userhome");
-      }
-    else
-      console.log("invalid credentials");
-
-   console.log(this.user.userName);
+    
+   console.log(this.user.userName + "has been logged in");
   }
 }

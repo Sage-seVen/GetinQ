@@ -20,11 +20,11 @@ export class BankingserviceService {
 
   validateBanker(userNumber:number)
   {
-    return this.http.put(`http://localhost:8080/banking/${userNumber}`,null);
+    return this.http.put<Banking[]>(`http://localhost:8080/banking/${userNumber}`,null);
   }
 
   rejectBanker(userNumber:number)
   {
-    return this.http.put(`http://localhost:8080/banking1/${userNumber}`,null);
+    return this.http.put<Banking[]>(`http://localhost:8080/banking1/${userNumber}`,null);
   }
 }

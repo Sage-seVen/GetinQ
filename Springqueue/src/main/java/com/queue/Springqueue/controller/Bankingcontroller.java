@@ -40,13 +40,13 @@ public class Bankingcontroller {
 	  
 
 	  @PutMapping(value="banking/{userNumber}")
-		public String validatereq(@PathVariable long userNumber )
+		public List<Banking> validatereq(@PathVariable long userNumber )
 		{
 			return bankingdao.validatereq(userNumber); 
 
 		}
 	  @PutMapping(value="banking1/{userNumber}")
-		public String rejectreq(@PathVariable long userNumber )
+		public List<Banking> rejectreq(@PathVariable long userNumber )
 		{
 			return bankingdao.rejectreq(userNumber); 
 

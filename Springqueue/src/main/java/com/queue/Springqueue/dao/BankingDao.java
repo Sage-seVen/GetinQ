@@ -26,21 +26,21 @@ public class BankingDao {
 				return mongoTemplate.findAll(Banking.class);
 			}
 			
-			public String validatereq(long userNumber) {
+			public List<Banking> validatereq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
 				Banking hosp=mongoTemplate.findOne(query, Banking.class);
 				hosp.setStatus("Approved");
 				mongoTemplate.save(hosp);
-				return "Status Approved";
+				return getAllBankers();
 			}
 			
-			public String rejectreq(long userNumber) {
+			public List<Banking> rejectreq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
 				Banking hosp=mongoTemplate.findOne(query, Banking.class);
 				hosp.setStatus("Rejected");
 				mongoTemplate.save(hosp);
-				return "Status Rejected";
+				return getAllBankers();
 			}
 }

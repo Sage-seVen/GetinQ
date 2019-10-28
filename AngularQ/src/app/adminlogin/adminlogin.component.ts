@@ -11,6 +11,9 @@ export class AdminloginComponent implements OnInit {
   constructor(private routy:Router) { }
 
   ngOnInit() {
+    let key = localStorage.getItem('adminState');
+    if(key=="true")
+    this.routy.navigateByUrl('/adminhome')
   }
 
   username:string;
@@ -20,9 +23,10 @@ export class AdminloginComponent implements OnInit {
     if(this.username=="admin" && this.password=="admin")
       {
         console.log("Welcome Admin");
+        localStorage.setItem('adminState', "true");
         this.routy.navigateByUrl("/adminhome");
       }
     else
-      console.log("Invalid credentials");
+      alert("Wrong Admin Details");
   }
 }

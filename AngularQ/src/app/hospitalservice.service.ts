@@ -36,11 +36,11 @@ export class HospitalserviceService {
 
   validatePatient(userNumber:number)
   {
-    return this.http.put(`http://localhost:8080/hospital/${userNumber}`,null);
+    return this.http.put<Hospital[]>(`http://localhost:8080/hospital/${userNumber}`,null);
   }
 
   rejectPatient(userNumber:number)
   {
-    return this.http.put(`http://localhost:8080/hospital1/${userNumber}`,null);
+    return this.http.put<Hospital[]>(`http://localhost:8080/hospital1/${userNumber}`,null);
   }
 }

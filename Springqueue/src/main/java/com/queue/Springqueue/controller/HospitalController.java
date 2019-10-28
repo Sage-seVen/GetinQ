@@ -39,18 +39,18 @@ public class HospitalController {
 	  @PutMapping(value="hospital")
 		public String updateRest(@RequestBody Hospital hospital )
 		{
-			//return hospitaldao.updateResturant(hospital);
+			//return hospitaldao.updateResturant(hospital);// this method is not built till now
 		  return "mastu";
 		}
 	  
 	  @PutMapping(value="hospital/{userNumber}")
-		public String validatereq(@PathVariable long userNumber )
+		public List<Hospital> validatereq(@PathVariable long userNumber )
 		{
 			return hospitaldao.validatereq(userNumber); 
 
 		}
 	  @PutMapping(value="hospital1/{userNumber}")
-		public String rejectreq(@PathVariable long userNumber )
+		public List<Hospital> rejectreq(@PathVariable long userNumber )
 		{
 			return hospitaldao.rejectreq(userNumber); 
 

@@ -10,7 +10,7 @@ export class UserserviceService {
 
   constructor(private http:HttpClient) { }
 
-  globalnum:number;
+/*  globalnum:number;
   globalname:string;
   globalemail:string;
   globalpass:string;
@@ -51,7 +51,10 @@ export class UserserviceService {
   {
     return this.globalpass;
   }
+  */
   
+
+  /////////////
   saveUser(user:User){
     return this.http.post<any>('http://localhost:8080/user',user);
   }
@@ -70,6 +73,16 @@ export class UserserviceService {
   getUserbyid(userNumber:number)
   {
     return this.http.get<User>(`http://localhost:8080/user/${userNumber}`);
+  }
+
+  updateUser(user:User)
+  {
+    return this.http.put<User>('http://localhost:8080/user',user);
+  }
+
+  deleteUSer(userNumber:number)
+  {
+    return this.http.delete<String>(`http://localhost:8080/user/${userNumber}`);
   }
 
 }

@@ -33,21 +33,21 @@ public class HospitalDao {
 //			}
 			
 			
-			public String validatereq(long userNumber) {
+			public List<Hospital> validatereq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
 				Hospital hosp=mongoTemplate.findOne(query, Hospital.class);
 				hosp.setStatus("Approved");
 				mongoTemplate.save(hosp);
-				return "Status Approved";
+				return getAllPatients();
 			}
 			
-			public String rejectreq(long userNumber) {
+			public List<Hospital> rejectreq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
 				Hospital hosp=mongoTemplate.findOne(query, Hospital.class);
 				hosp.setStatus("Rejected");
 				mongoTemplate.save(hosp);
-				return "Status Rejected";
+				return getAllPatients();
 			}
 }

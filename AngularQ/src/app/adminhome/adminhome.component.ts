@@ -3,6 +3,7 @@ import { BankingserviceService } from '../bankingservice.service';
 import { Banking } from '../banking.model';
 import { HospitalserviceService } from '../hospitalservice.service';
 import { Hospital } from '../hospital.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminhome',
@@ -11,9 +12,12 @@ import { Hospital } from '../hospital.model';
 })
 export class AdminhomeComponent implements OnInit {
 
-  constructor(private bankingserv:BankingserviceService, private hospitalservice:HospitalserviceService) { }
+  constructor(private bankingserv:BankingserviceService, private hospitalservice:HospitalserviceService, private routy:Router) { }
 
   ngOnInit() {
+    let key = localStorage.getItem('adminState');
+    if(key!="true")
+    this.routy.navigateByUrl('/adminlogin')
   }
 
   vision:boolean=false;
@@ -22,6 +26,8 @@ export class AdminhomeComponent implements OnInit {
   rvision:boolean=true;
   bankers:Banking[]=[];
   patients:Hospital[]=[];
+  able:string="btn btn-primary active";
+  disable:string="btn btn-primary disabled";
   luserNumber:number[]=[];
   luserNumber1:number[]=[];
   i:number=0;
@@ -81,33 +87,28 @@ export class AdminhomeComponent implements OnInit {
     acceptpatient(test:any)
     {
       console.log(test);
-      this.hospitalservice.validatePatient(test).subscribe( data=> console.log(data), error=>console.log(error) );
+      this.hospitalservice.validatePatient(test).subscribe( data=> this.patients=data, error=>console.log(error) );
       this.avision=false;
-      this.getallhospital();
-      this.getallhospital();
     }
     rejectpatient(test:any){
       console.log(test);
-      this.hospitalservice.rejectPatient(test).subscribe( data=> console.log(data), error=>console.log(error) );
+      this.hospitalservice.rejectPatient(test).subscribe( data=> this.patients=data, error=>console.log(error) );
       this.rvision=false;
-      this.getallhospital();
-      this.getallhospital();
-      this.getallhospital();
     }
 
     acceptbanker(test:any)
     {
       console.log(test);
-      this.bankingserv.validateBanker(test).subscribe( data=> console.log(data), error=>console.log(error) );
-      this.getallbank();
-      // this.getallbank();
+      this.bankingserv.validateBanker(test).subscribe( data=> this.bankers=data, error=>console.log(error) );
     }
 
     rejectbanker(test:any){
       console.log(test);
-      this.bankingserv.rejectBanker(test).subscribe( data=> console.log(data), error=>console.log(error) );
-      this.getallbank();
-      // this.getallbank();
-      // this.getallbank();
+      this.bankingserv.rejectBanker(test).subscribe( data=> this.bankers=data, error=>console.log(error) );
+    }
+
+    adminlogout(){
+      localStorage.clear();
+      alert("Bye Bye Admin");
     }
 }

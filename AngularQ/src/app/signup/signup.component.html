@@ -22,7 +22,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" [(ngModel)]="user.userEmail" >
+          <input class="input100" type="text" name="useremail" placeholder="Email Address" [(ngModel)]="user.userEmail" >
           <span class="focus-input100"></span>
         </div>
 
@@ -32,7 +32,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" [(ngModel)]="user.userNumber">
+          <input class="input100" type="text" name="usernumber" placeholder="Mobile Number" [(ngModel)]="user.userNumber">
           <span class="focus-input100"></span>
         </div>
 
@@ -42,7 +42,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-          <input class="input100" type="password" name="pass" [(ngModel)]="user.password" >
+          <input class="input100" type="password" name="pass" placeholder="Choose Password" [(ngModel)]="user.password" >
           <span class="focus-input100"></span>
         </div>
 
@@ -51,14 +51,21 @@
             Confirm Password
           </span>
         </div>
+        
         <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-          <input class="input100" type="password" name="pass"  >
+          <input class="input100" type="password" placeholder="Re-enter Password" name="pass"  >
           <span class="focus-input100"></span>
         </div>
 
         <div class="container-login100-form-btn m-t-17">
-          <button class="login100-form-btn" routerLink="/login" (click)="saveUser()" >
+          <button class="login100-form-btn"  (click)="saveUser()" >
             Create Account
+          </button>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+          <button class="login100-form-btn" routerLink="/login" >
+            Back
           </button>
         </div>
       </form>
