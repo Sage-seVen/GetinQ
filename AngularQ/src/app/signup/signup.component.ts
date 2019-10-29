@@ -16,20 +16,26 @@ export class SignupComponent implements OnInit {
   }
   
   user:User={"userNumber":null,"userName":"","userEmail":"","password":""};
-  
+  user1:User={"userNumber":null,"userName":"","userEmail":"","password":""};
+
   saveUser(){
-    if(this.userservice.getUserbyid(this.user.userNumber)==null)
+    this.userservice.getUserbyid(this.user.userNumber).subscribe(
+      data=>  { this.user1=data;
+    if(this.user1 ==  null)
     {
       this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
       alert("Account Creation Success")
       this.routy.navigateByUrl('/login');
     }
-    else if() 
+    else 
     {alert("Account Already Exists")}
     // this.userservice.setid(this.user.userNumber);
     // this.userservice.setname(this.user.userName);
     // this.userservice.setemail(this.user.userEmail);
     // this.userservice.setpass(this.user.password);
-  }
+  },
+  error=>console.log(error)
+  )
+}
 
 }
