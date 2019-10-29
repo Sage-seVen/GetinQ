@@ -26,6 +26,16 @@ public class HospitalDao {
 				return mongoTemplate.findAll(Hospital.class);
 			}
 			
+			public Hospital getPatientbyid(long userNumber)
+			{
+				Query query=new Query();
+				query.addCriteria(Criteria.where("userNumber").is(userNumber));
+				Hospital hosp=mongoTemplate.findOne(query, Hospital.class);
+				return hosp;
+			}
+			
+			
+			
 //			public Resturant getResturantById(String resturantId) {
 //				Query query = new Query();
 //				query.addCriteria(Criteria.where("resturantId").is(resturantId));

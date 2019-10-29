@@ -36,6 +36,12 @@ public class HospitalController {
 			return hospitaldao.getAllPatients();
 		}
 	  
+	  @GetMapping(value="hospital/{userNumber}")
+	  public Hospital getById(@PathVariable long userNumber)
+	  {
+		 return hospitaldao.getPatientbyid(userNumber);
+	  }
+	  
 	  @PutMapping(value="hospital")
 		public String updateRest(@RequestBody Hospital hospital )
 		{

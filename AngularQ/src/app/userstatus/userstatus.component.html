@@ -6,16 +6,30 @@
 <div>
 <input type="submit" value="Get Booking status" (click)="bookingstatus()"><hr>
 <table border="2" *ngIf=(vision)>
-<th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th>LoanToken</th><th>DepositToken</th>
+<th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th>{{banking.requestType}} Token No </th>
 <tr >
     <td>{{banking.userNumber}}</td>
     <td>{{parseDate(banking.date)}}</td>
     <td>{{banking.requestType}}</td>
     <td>{{banking.status}}</td>
-    <td>{{banking.loanToken}}</td>
-    <td>{{banking.depositToken}}</td>
+    <td>{{tokeno}}</td>
    
 </tr>
+
+<th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th> <th> &nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th>
+
+<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr> 
+
+<th>User Number</th> <th>Date</th> <th>Slot</th> <th> Request Type </th> <th>Message </th> <th> Status</th>
+<tr>
+    <td>{{hospital.userNumber}}</td>
+    <td>{{parseDate(hospital.date)}}</td>
+    <td>{{sloter}}</td>    
+    <td>{{hospital.requestType}}</td>
+    <td>{{hospital.message}}</td>
+    <td>{{hospital.status}}</td>
+  </tr>
+
 </table>
 </div>
 

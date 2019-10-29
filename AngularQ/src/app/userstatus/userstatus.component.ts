@@ -3,6 +3,8 @@ import { UserserviceService } from '../userservice.service';
 import { BankingserviceService } from '../bankingservice.service';
 import { Banking } from '../banking.model';
 import { Router } from '@angular/router';
+import { HospitalserviceService } from '../hospitalservice.service';
+import { Hospital } from '../hospital.model';
 
 @Component({
   selector: 'app-userstatus',
@@ -18,13 +20,17 @@ export class UserstatusComponent implements OnInit {
 // depositToken:number;
 vision:boolean=false;
 
-  constructor(private userservice:UserserviceService, private bankingservice:BankingserviceService, private routy:Router) {
+  constructor(private userservice:UserserviceService, private bankingservice:BankingserviceService, private routy:Router,private hospitalservice:HospitalserviceService) {
     // this.num=parseInt(localStorage.getItem('id'));
     // console.log(this.num)
    }
 
    banking:Banking={userNumber:null, date:null, requestType:"" , status:"", loanToken:null, depositToken:null};
-
+   hospital:Hospital={userNumber:0, date:null, slot:0, requestType:"",message:"", status:""};
+  
+   tokeno:number;
+   label:string;
+   sloter:string;
   ngOnInit() {
     let key = localStorage.getItem('sessionState');
     if(key!="LoggedIn") 
@@ -41,6 +47,10 @@ vision:boolean=false;
      this.vision=true;
       this.bankingservice.getBankerById(parseInt(localStorage.getItem('id'))).subscribe( 
       data=>{ this.banking=data;
+        if(this.banking.requestType=="Loan")
+          this.tokeno=this.banking.loanToken;
+        else
+          this.tokeno=this.banking.depositToken;
         console.log(data)
         console.log(this.banking.userNumber);
         console.log(this.banking.loanToken);
@@ -49,8 +59,18 @@ vision:boolean=false;
        error=>console.log(error) );
       // this.bankingservice.setdeposit(this.depositToken);
       // this.bankingservice.setloan(this.loanToken);
-
-    
+      this.hospitalservice.getPatientbyid(parseInt(localStorage.getItem('id'))).subscribe(
+        data=>{this.hospital=data;
+          console.log(data)
+          if(this.hospital.slot==1)
+          this.sloter="SLOT-1 => 10AM-12PM";
+          else
+          this.sloter=" SLOT-2 =>   2PM-4PM";
+          // console.log(this.sloter);
+          // console.log(this.hospital.slot);
+        },
+        error=>console.log(error)
+      );
    }
 
 }

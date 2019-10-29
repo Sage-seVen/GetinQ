@@ -6,15 +6,25 @@
 <div>
 <input type="submit" value="Get Bank Data" (click)="getallbank()"><hr>
 <table border="2" *ngIf=(vision)>
-  <th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th scope="2">Accept/Reject</th>
+  <th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th> Token No</th><th scope="2">Action</th>
   <tr *ngFor="let ref of bankers">
       <td>{{ref.userNumber}}</td>
       <td>{{parseDate(ref.date)}}</td>
       <td>{{ref.requestType}}</td>
       <td>{{ref.status}}</td>
-      <td><button class="btn btn-success" name="accepted" (click)="acceptbanker(ref.userNumber)"> Accept</button>&nbsp;
+
+      <td *ngIf="ref.requestType=='Loan'"> Loan Token: {{ref.loanToken}} </td>
+      <td *ngIf="ref.requestType=='Deposit'"> Deposit Token: {{ref.depositToken}} </td> 
+
+      <td *ngIf="ref.status=='Requested'"><button class="btn btn-success" name="accepted" (click)="acceptbanker(ref.userNumber)"> Accept</button>&nbsp;
       <button class="btn btn-danger" name="rejected" (click)="rejectbanker(ref.userNumber)"> Reject</button></td>
-  </tr>
+  
+      <td *ngIf="ref.status=='Approved'">
+      <button class="btn btn-danger" name="rejected" (click)="rejectbanker(ref.userNumber)"> Reject</button></td>
+    
+      <td *ngIf="ref.status=='Rejected'">
+      <button class="btn btn-success" name="accepted" (click)="acceptbanker(ref.userNumber)"> Accept</button>
+    </tr>
 </table>
 </div>
 

@@ -49,6 +49,7 @@ public class Bankingcontroller {
 	  @PutMapping(value="banking/{userNumber}")
 		public List<Banking> validatereq(@PathVariable long userNumber )
 		{
+		  System.out.println(userNumber);
 			return bankingdao.validatereq(userNumber); 
 
 		}

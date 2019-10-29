@@ -20,17 +20,18 @@ export class ForgotpassComponent implements OnInit {
   {
     console.log(this.num);
     this.userservice.getUserbyid(this.num).subscribe(
-      data=> {this.user=data},
+      data=> {this.user=data;
+        if(this.user.userNumber!=null && this.user.securityQuestion==this.security && this.user.answer==this.answer)
+        {
+        localStorage.setItem('id', this.user.userNumber+"");
+        this.routy.navigateByUrl("/resetpass");
+        }
+        else
+        console.log("Invalid Answer");},
       error=>console.log(error)
       );
 
-      if(this.user.userNumber!=null && this.user.securityQuestion==this.security && this.user.answer==this.answer)
-      {
-      localStorage.setItem('id', this.user.userNumber+"");
-      this.routy.navigateByUrl("/resetpass");
-      }
-      else
-      console.log("Invalid Answer");
+      
   }
   ngOnInit() {
   }

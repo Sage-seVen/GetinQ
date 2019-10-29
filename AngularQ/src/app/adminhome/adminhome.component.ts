@@ -28,22 +28,26 @@ export class AdminhomeComponent implements OnInit {
   patients:Hospital[]=[];
   able:string="btn btn-primary active";
   disable:string="btn btn-primary disabled";
+  btnlabel:string;
   luserNumber:number[]=[];
   luserNumber1:number[]=[];
   i:number=0;
   j:number=0;
+  tokeno:number;
 
   parseDate(getdate:number)
   {
    return new Date(getdate).toDateString();
   }
 
+
   getallbank()
   {
       this.vision=true;
       this.bankingserv.getAllBankers().subscribe(
-      data=> this.bankers=data,
-      error=>console.log(error)
+      data=>{ this.bankers=data;
+      
+      error=>console.log(error)}
     );
 
     for(let rest of this.bankers)
@@ -89,6 +93,7 @@ export class AdminhomeComponent implements OnInit {
       console.log(test);
       this.hospitalservice.validatePatient(test).subscribe( data=> this.patients=data, error=>console.log(error) );
       this.avision=false;
+      this.btnlabel=this.disable;
     }
     rejectpatient(test:any){
       console.log(test);
