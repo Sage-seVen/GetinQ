@@ -8,6 +8,10 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HospitalComponent } from './hospital/hospital.component';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { ResetpassComponent } from './resetpass/resetpass.component';
+import { UserstatusComponent } from './userstatus/userstatus.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 
 const routes: Routes = [
   {
@@ -22,7 +26,11 @@ const routes: Routes = [
   {path:'adminlogin',component:AdminloginComponent},
   {path:'adminhome',component:AdminhomeComponent},
   {path:'profile', component:ProfileComponent},
-  {path:'hospital',component:HospitalComponent}
+  {path:'hospital',component:HospitalComponent}, 
+  {path:'updateprofile', component:UpdateprofileComponent},
+  {path:'forgotpass',component:ForgotpassComponent},
+  {path:'resetpass',component:ResetpassComponent},
+  {path:'userstatus',component:UserstatusComponent}
   
   
   // {

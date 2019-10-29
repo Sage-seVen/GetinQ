@@ -12,6 +12,8 @@ public class Banking {
 		Date date;
 		String requestType;
 		String status;
+		int loanToken;
+		int depositToken;
 		public long getUserNumber() {
 			return userNumber;
 		}
@@ -36,8 +38,17 @@ public class Banking {
 		public void setRequestType(String requestType) {
 			this.requestType = requestType;
 		}
+		public int getLoanToken() {
+			return loanToken;
+		}
+		public void setLoanToken(int loanToken) {
+			this.loanToken = loanToken;
+		}
+		public int getDepositToken() {
+			return depositToken;
+		}
+		public void setDepositToken(int depositToken) {
+			this.depositToken = depositToken;
+		}
 		
-		
-		
-
 }

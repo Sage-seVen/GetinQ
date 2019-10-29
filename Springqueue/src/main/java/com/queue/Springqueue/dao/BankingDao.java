@@ -26,6 +26,14 @@ public class BankingDao {
 				return mongoTemplate.findAll(Banking.class);
 			}
 			
+			public Banking getBankerById(long userNumber)
+			{
+				Query query=new Query();
+				query.addCriteria(Criteria.where("userNumber").is(userNumber));
+				Banking bank=mongoTemplate.findOne(query, Banking.class);
+				return bank;
+			}
+			
 			public List<Banking> validatereq(long userNumber) {
 				Query query=new Query();
 				query.addCriteria(Criteria.where("userNumber").is(userNumber));
@@ -43,4 +51,6 @@ public class BankingDao {
 				mongoTemplate.save(hosp);
 				return getAllBankers();
 			}
+			
+			
 }

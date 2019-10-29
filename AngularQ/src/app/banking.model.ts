@@ -3,4 +3,6 @@ export interface Banking{
     date:Date;
     requestType:string;
     status:string;
+    loanToken:number;
+    depositToken:number;
     }

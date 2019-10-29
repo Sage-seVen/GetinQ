@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   number:number;
   password:any;
 
-  user: User={"userNumber":null,"userName":"","userEmail":"","password":""};
+  user: User={"userNumber":null,"userName":"","userEmail":"","password":"","securityQuestion":"","answer":""};
   getuser()
   {
     this.userservice.getUser(this.number,this.password).subscribe(
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('userEmail',this.user.userEmail);
               localStorage.setItem('pass',this.user.password);
               localStorage.setItem('sessionState', "LoggedIn");
+              localStorage.setItem('securityQuestion', this.user.securityQuestion);
+              localStorage.setItem('answer',this.user.answer);
               // this.userservice.setid(this.number);
               // this.userservice.setname(this.user.userName);
               // this.userservice.setemail(this.user.userEmail);

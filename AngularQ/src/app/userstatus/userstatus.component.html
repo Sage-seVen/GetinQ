@@ -1,3 +1,44 @@
-<p>
-  userstatus works!
-</p>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
+    <!-- <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33"> -->
+
+
+<div>
+<input type="submit" value="Get Booking status" (click)="bookingstatus()"><hr>
+<table border="2" *ngIf=(vision)>
+<th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th>LoanToken</th><th>DepositToken</th>
+<tr >
+    <td>{{banking.userNumber}}</td>
+    <td>{{parseDate(banking.date)}}</td>
+    <td>{{banking.requestType}}</td>
+    <td>{{banking.status}}</td>
+    <td>{{banking.loanToken}}</td>
+    <td>{{banking.depositToken}}</td>
+   
+</tr>
+</table>
+</div>
+
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div>
+<input type="submit" value="Get Hospital Data" (click)="getallhospital()"><hr>
+<table border="2" *ngIf=(vision1)>
+<th>User Number</th> <th>Date</th> <th>Slot</th> <th> Request Type </th> <th>Message </th> <th> Status</th><th scope="2">Accept/Reject</th>
+<tr *ngFor="let ref of patients">
+    <td>{{ref.userNumber}}</td>
+    <td>{{parseDate(ref.date)}}</td>
+    <td>{{ref.slot}}</td>    
+    <td>{{ref.requestType}}</td>
+    <td>{{ref.message}}</td>
+    <td>{{ref.status}}</td>
+    <td><button  class="btn btn-danger" name="accepted" (click)="acceptpatient(ref.userNumber)"> Accept</button>&nbsp;
+    <button  class="btn btn-danger" name="rejected" (click)="rejectpatient(ref.userNumber)"> Reject</button></td>
+</tr>
+</table>
+</div> -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div> <button  class="btn btn-warning" name="back" routerLink="/userhome"> Back </button> </div>
+    <!-- </div> -->
+  </div>
+</div>

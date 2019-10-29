@@ -15,6 +15,8 @@ import { HospitalComponent } from './hospital/hospital.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { UserstatusComponent } from './userstatus/userstatus.component';
+import { ResetpassComponent } from './resetpass/resetpass.component';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UserstatusComponent } from './userstatus/userstatus.component';
     HospitalComponent,
     ProfileComponent,
     UpdateprofileComponent,
-    UserstatusComponent
+    UserstatusComponent,
+    ResetpassComponent,
+    ForgotpassComponent
   ],
   imports: [
     BrowserModule,

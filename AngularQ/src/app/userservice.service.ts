@@ -85,4 +85,10 @@ export class UserserviceService {
     return this.http.delete<String>(`http://localhost:8080/user/${userNumber}`);
   }
 
+  passwordreset(userNumber:number,password:string):Observable<User>
+  {
+    return this.http.put<any>(`http://localhost:8080/user/${userNumber}/${password}`,null);
+  }
+
+
 }

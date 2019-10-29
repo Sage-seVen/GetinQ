@@ -11,9 +11,9 @@ export class AppComponent {
   title = 'AngularQ';
 
   constructor(private userservice:UserserviceService){}
-  user:User={"userNumber":123456789,"userName":"Dwarka",userEmail:"string",password:"string"};
+  // user:User={"userNumber":123456789,"userName":"Dwarka",userEmail:"string",password:"string"};
   
-  saveUser(){
-    this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
-  }
+  // saveUser(){
+  //   this.userservice.saveUser(this.user).subscribe( data=> console.log(data), error=>console.log(error) );
+  // }
 }

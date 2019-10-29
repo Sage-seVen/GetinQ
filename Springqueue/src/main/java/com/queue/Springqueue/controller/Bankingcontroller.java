@@ -36,7 +36,14 @@ public class Bankingcontroller {
 			return bankingdao.getAllBankers(); 
 		}
 	  
+	  @GetMapping(value="banking/{userNumber}")
+	  public Banking getById(@PathVariable long userNumber)
+	  {
+		 return bankingdao.getBankerById(userNumber);
+	  }
+	  
 	  //normal update method have to write
+	  
 	  
 
 	  @PutMapping(value="banking/{userNumber}")

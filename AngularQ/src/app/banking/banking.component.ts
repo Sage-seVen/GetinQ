@@ -30,7 +30,7 @@ export class BankingComponent implements OnInit {
   // lrequestType:String;
   lstatus:string="Requested";
 
-  banking:Banking={userNumber:0, date:null, requestType:"",status:this.lstatus};
+  banking:Banking={userNumber:0, date:null, requestType:"",status:this.lstatus, loanToken:null, depositToken:null};
   
   savebdata(){
     this.banking.userNumber=this.intId;

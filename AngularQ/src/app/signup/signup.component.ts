@@ -15,8 +15,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   
-  user:User={"userNumber":null,"userName":"","userEmail":"","password":""};
-  user1:User={"userNumber":null,"userName":"","userEmail":"","password":""};
+  user:User={"userNumber":null,"userName":"","userEmail":"","password":"","securityQuestion":"","answer":""};
+  user1:User={"userNumber":null,"userName":"","userEmail":"","password":"","securityQuestion":"","answer":""};
 
   saveUser(){
     this.userservice.getUserbyid(this.user.userNumber).subscribe(

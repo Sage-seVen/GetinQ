@@ -41,6 +41,23 @@ public class UserDao {
 			User user= mongoTemplate.findOne(query, User.class);
 			return user;
 		}
+		
+		public User updateUser(User user)
+		{
+			mongoTemplate.save(user);
+			return user;
+		}
+		
+		public String resetPassword(long userNumber,String password)
+		{
+			Query query=new Query();
+			query.addCriteria(Criteria.where("userNumber").is(userNumber));
+			User user=mongoTemplate.findOne(query, User.class);
+			user.setPassword(password);
+			mongoTemplate.save(user);
+			return "Password Updated";
+		}
+
 
 //		public Object getAllUserItems(String resturantId) {
 //			Query query = new Query();

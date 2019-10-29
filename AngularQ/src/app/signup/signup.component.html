@@ -32,28 +32,52 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="usernumber" placeholder="Mobile Number" [(ngModel)]="user.userNumber">
+          <input class="input100" type="number" name="usernumber" placeholder="Mobile Number" [(ngModel)]="user.userNumber">
           <span class="focus-input100"></span>
         </div>
 
         <div class="p-t-13 p-b-9">
           <span class="txt1">
-            Password
+            Password<span style="color:red;">*</span>
           </span>
         </div>
-        <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-          <input class="input100" type="password" name="pass" placeholder="Choose Password" [(ngModel)]="user.password" >
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="password" name="pass" placeholder="Enter Password" [(ngModel)]="user.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
           <span class="focus-input100"></span>
         </div>
 
         <div class="p-t-13 p-b-9">
           <span class="txt1">
-            Confirm Password
+            Confirm Password<span style="color:red;">*</span>
           </span>
         </div>
-        
-        <div class="wrap-input100 validate-input" data-validate = "Password is required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-          <input class="input100" type="password" placeholder="Re-enter Password" name="pass"  >
+        <div class="wrap-input100 validate-input" >
+          <input class="input100" type="password" name="pass" placeholder="Re-Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+          <span class="focus-input100"></span>
+        </div>
+        <div class="p-t-13 p-b-9">
+          <span class="txt1">
+            Sequrity Question<span style="color:red;">*</span>
+          </span>
+        </div>
+        <div class="wrap-input100 validate-input" >
+          <select class="input100" name="securityQuestion" [(ngModel)]="user.securityQuestion">
+            <option value=""> Select</option>
+            <option value="Your Birth place?">Your Birth place?</option>
+            <option value="Your Pet Name?">Your Pet Name?</option>
+            <option value="Your First School Name?">Your First School Name?</option>
+            <option value="Your Dream Company">Your Dream Company</option>
+        </select>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="p-t-13 p-b-9">
+          <span class="txt1">
+            Answer <span style="color:red;">*</span>
+          </span>
+        </div>
+        <div class="wrap-input100 validate-input" >
+          <input class="input100" type="text" name="answer" id="ans1" placeholder="Enter Answer" [(ngModel)]="user.answer"/>
           <span class="focus-input100"></span>
         </div>
 
@@ -62,11 +86,14 @@
             Create Account
           </button>
         </div>
+        <div class="w-full text-center p-t-55">
+          <span class="txt2">
+           All Ready a member?
+          </span>
 
-        <div class="container-login100-form-btn m-t-17">
-          <button class="login100-form-btn" routerLink="/login" >
-            Back
-          </button>
+          <a href="#" class="txt2 bo1" routerLink="/login" >
+            Sign in
+          </a>
         </div>
       </form>
     </div>
@@ -74,6 +101,6 @@
 </div>
 
 
-<div id="dropDownSelect1"></div>
+<!-- <div id="dropDownSelect1"></div> -->
 
 <router-outlet></router-outlet>

@@ -110,5 +110,6 @@ export class AdminhomeComponent implements OnInit {
     adminlogout(){
       localStorage.clear();
       alert("Bye Bye Admin");
+      this.routy.navigateByUrl('/adminlogin');
     }
 }

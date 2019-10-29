@@ -11,6 +11,8 @@ public class User {
 	String userName;
 	String userEmail;
 	String password;
+	String securityQuestion;
+	String answer;
 	
 	public long getUserNumber() {
 		return userNumber;
@@ -36,5 +38,18 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	
 	
 }

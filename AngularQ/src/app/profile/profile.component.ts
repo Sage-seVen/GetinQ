@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit {
   user: User={userNumber:parseInt(localStorage.getItem('id')),
   "userName":localStorage.getItem('userName'),
   "userEmail":localStorage.getItem('userEmail'),
-  "password":localStorage.getItem('pass')};
+  "password":localStorage.getItem('pass'),
+  "securityQuestion":"","answer":""};
 
 }
