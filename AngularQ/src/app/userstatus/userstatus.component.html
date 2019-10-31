@@ -4,7 +4,7 @@
 
 
 <div>
-<input type="submit" value="Get Booking status" (click)="bookingstatus()"><hr>
+<input type="submit" value="Banking Booking status" (click)="bookingstatus()"><hr>
 <table border="2" *ngIf=(vision)>
 <th>User Number</th> <th>Date</th> <th> Request Type </th> <th> Status</th><th>{{banking.requestType}} Token No </th>
 <tr >
@@ -16,10 +16,12 @@
    
 </tr>
 
-<th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th> <th> &nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th>
+<!-- <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th> <th> &nbsp;&nbsp;</th> <th>&nbsp;&nbsp; </th> -->
+</table>
 
+<input type="submit" value="Hospital appointment status" (click)="bookingstatus1()"><hr>
+<table border="2" *ngIf=(vision1)>
 <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr> 
-
 <th>User Number</th> <th>Date</th> <th>Slot</th> <th> Request Type </th> <th>Message </th> <th> Status</th>
 <tr>
     <td>{{hospital.userNumber}}</td>

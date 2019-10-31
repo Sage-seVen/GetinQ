@@ -19,6 +19,7 @@ export class UserstatusComponent implements OnInit {
 // loanToken:number;
 // depositToken:number;
 vision:boolean=false;
+vision1:boolean=false;
 
   constructor(private userservice:UserserviceService, private bankingservice:BankingserviceService, private routy:Router,private hospitalservice:HospitalserviceService) {
     // this.num=parseInt(localStorage.getItem('id'));
@@ -58,19 +59,23 @@ vision:boolean=false;
       },
        error=>console.log(error) );
       // this.bankingservice.setdeposit(this.depositToken);
-      // this.bankingservice.setloan(this.loanToken);
-      this.hospitalservice.getPatientbyid(parseInt(localStorage.getItem('id'))).subscribe(
-        data=>{this.hospital=data;
-          console.log(data)
-          if(this.hospital.slot==1)
-          this.sloter="SLOT-1 => 10AM-12PM";
-          else
-          this.sloter=" SLOT-2 =>   2PM-4PM";
-          // console.log(this.sloter);
-          // console.log(this.hospital.slot);
-        },
-        error=>console.log(error)
-      );
+      // this.bankingservice.setloan(this.loanToken);    
+   }
+
+   bookingstatus1(){
+    this.vision1=true;
+    this.hospitalservice.getPatientbyid(parseInt(localStorage.getItem('id'))).subscribe(
+      data=>{this.hospital=data;
+        console.log(data)
+        if(this.hospital.slot==1)
+        this.sloter="SLOT-1 => 10AM-12PM";
+        else
+        this.sloter=" SLOT-2 =>   2PM-4PM";
+        // console.log(this.sloter);
+        // console.log(this.hospital.slot);
+      },
+      error=>console.log(error)
+    );
    }
 
 }

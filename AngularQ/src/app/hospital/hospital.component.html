@@ -66,6 +66,8 @@
           <!-- <input class="input100" type="textbox" name="message" [(ngModel)]="hospital.message" > -->
           <!-- <span class="focus-input100"></span> -->
         </div>
+        
+        <input type="file" (change)="upload($event.target.files)">
 
         <div class="container-login100-form-btn m-t-17">
           <button class="login100-form-btn" routerLink="/userhome" (click)="savebdata()" >
