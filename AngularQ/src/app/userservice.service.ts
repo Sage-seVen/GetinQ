@@ -10,6 +10,33 @@ export class UserserviceService {
 
   constructor(private http:HttpClient) { }
 
+loantoken:number;
+depositoken:number;
+
+setloantoken(num:number)
+{
+  this.loantoken=num;
+  console.log(this.loantoken);
+}
+
+setdeposittoken(num:number)
+{
+  this.depositoken=num;
+  console.log(this.depositoken);
+}
+
+getloantoken()
+{
+  console.log(this.loantoken);
+  return this.loantoken;
+}
+
+getdepositoken()
+{
+  console.log(this.depositoken);
+  return this.depositoken;
+}
+
 /*  globalnum:number;
   globalname:string;
   globalemail:string;

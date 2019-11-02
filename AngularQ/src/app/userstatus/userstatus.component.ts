@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 import { BankingserviceService } from '../bankingservice.service';
 import { Banking } from '../banking.model';
@@ -12,6 +12,7 @@ import { Hospital } from '../hospital.model';
   styleUrls: ['./userstatus.component.css']
 })
 export class UserstatusComponent implements OnInit {
+
 // num:number;
 // date:Date;
 // requestType:string;
@@ -20,6 +21,8 @@ export class UserstatusComponent implements OnInit {
 // depositToken:number;
 vision:boolean=false;
 vision1:boolean=false;
+cd:number;
+cl:number;
 
   constructor(private userservice:UserserviceService, private bankingservice:BankingserviceService, private routy:Router,private hospitalservice:HospitalserviceService) {
     // this.num=parseInt(localStorage.getItem('id'));
@@ -31,11 +34,17 @@ vision1:boolean=false;
   
    tokeno:number;
    label:string;
-   sloter:string;
+   sloter:string;  
+
   ngOnInit() {
     let key = localStorage.getItem('sessionState');
     if(key!="LoggedIn") 
     this.routy.navigateByUrl('/login');
+    
+    this.cd=this.userservice.getdepositoken();
+    this.cl=this.userservice.getloantoken();
+    console.log(this.cd);
+    console.log(this.cl);
   }
 
   parseDate(getdate:number)
@@ -56,6 +65,8 @@ vision1:boolean=false;
         console.log(this.banking.userNumber);
         console.log(this.banking.loanToken);
         console.log(this.banking.depositToken);
+        console.log(this.cd);
+    console.log(this.cl);
       },
        error=>console.log(error) );
       // this.bankingservice.setdeposit(this.depositToken);

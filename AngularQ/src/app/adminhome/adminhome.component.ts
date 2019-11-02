@@ -4,6 +4,7 @@ import { Banking } from '../banking.model';
 import { HospitalserviceService } from '../hospitalservice.service';
 import { Hospital } from '../hospital.model';
 import { Router } from '@angular/router';
+import { UserserviceService } from '../userservice.service';
 
 @Component({
   selector: 'app-adminhome',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AdminhomeComponent implements OnInit {
 
-  constructor(private bankingserv:BankingserviceService, private hospitalservice:HospitalserviceService, private routy:Router) { }
+  constructor(private userservice:UserserviceService, private bankingserv:BankingserviceService, private hospitalservice:HospitalserviceService, private routy:Router) { }
 
   ngOnInit() {
     let key = localStorage.getItem('adminState');
@@ -22,8 +23,10 @@ export class AdminhomeComponent implements OnInit {
 
   vision:boolean=false;
   vision1:boolean=false;
+
   avision:boolean=true;
   rvision:boolean=true;
+
   bankers:Banking[]=[];
   patients:Hospital[]=[];
   able:string="btn btn-primary active";
@@ -34,6 +37,9 @@ export class AdminhomeComponent implements OnInit {
   i:number=0;
   j:number=0;
   tokeno:number;
+
+  cd:number;
+  cl:number;
 
   parseDate(getdate:number)
   {
@@ -112,8 +118,17 @@ export class AdminhomeComponent implements OnInit {
       this.bankingserv.rejectBanker(test).subscribe( data=> this.bankers=data, error=>console.log(error) );
     }
 
+    sendupdate(){
+      this.userservice.setloantoken(this.cl);
+      this.userservice.setdeposittoken(this.cd);
+      console.log(this.userservice.getloantoken+"");
+      console.log(this.userservice.getdepositoken);
+    //   console.log(this.cd);
+    // console.log(this.cl);
+    }
+
     adminlogout(){
-      localStorage.clear();
+      localStorage.removeItem('adminState');
       alert("Bye Bye Admin");
       this.routy.navigateByUrl('/adminlogin');
     }
