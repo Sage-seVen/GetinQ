@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('id', this.user.userNumber+"");
               localStorage.setItem('userName', this.user.userName);
               localStorage.setItem('userEmail',this.user.userEmail);
-              localStorage.setItem('pass',this.user.password);
+              // localStorage.setItem('pass',this.user.password);
               localStorage.setItem('sessionState', "LoggedIn");
               localStorage.setItem('securityQuestion', this.user.securityQuestion);
               localStorage.setItem('answer',this.user.answer);

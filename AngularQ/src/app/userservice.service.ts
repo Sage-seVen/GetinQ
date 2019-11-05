@@ -27,13 +27,13 @@ setdeposittoken(num:number)
 
 getloantoken()
 {
-  console.log(this.loantoken);
+  // console.log(this.loantoken);
   return this.loantoken;
 }
 
 getdepositoken()
 {
-  console.log(this.depositoken);
+  // console.log(this.depositoken);
   return this.depositoken;
 }
 

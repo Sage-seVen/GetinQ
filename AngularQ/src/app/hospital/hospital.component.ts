@@ -15,8 +15,16 @@ export class HospitalComponent implements OnInit {
   @Input() intId:number;
   constructor(private userservice:UserserviceService, private hospitalservice:HospitalserviceService,private routy:Router, private http: HttpClient ) { 
     //this.num=userservice.getid()
+    let year=this.today.getFullYear();
+    let month= this.today.getMonth()+1;
+    let day= this.today.getDate();
+    let monthn; let ddn;
+    if(month<10) monthn=0+""+month;else monthn=month;
+    if(day<10) ddn=0+""+day;else ddn=day;
+    this.todaymin=year+"-"+monthn+"-"+ddn;
   }
 
+   today=new Date(); todaymin;
   ngOnInit() {
     let key = localStorage.getItem('sessionState');
     let userNum = localStorage.getItem('id');

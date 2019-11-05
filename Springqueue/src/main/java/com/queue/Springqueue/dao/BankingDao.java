@@ -67,7 +67,7 @@ public class BankingDao {
 				}
 				if((hosp.getRequestType().equals("Deposit") && hosp.getStatus().equals("Requested"))||(hosp.getRequestType().equals("Deposit") && hosp.getStatus().equals("Rejected")))
 				{
-					hosp.setDepositToken(getLastDepositToken().getLoanToken()+1);
+					hosp.setDepositToken(getLastDepositToken().getDepositToken()+1);
 				}
 				hosp.setStatus("Approved");
 				
@@ -87,7 +87,7 @@ public class BankingDao {
 				}
 				if(hosp.getRequestType().equals("Deposit"))
 				{
-					hosp.setLoanToken(0);
+					hosp.setDepositToken(0);
 				}
 				hosp.setStatus("Rejected");
 				mongoTemplate.save(hosp);
